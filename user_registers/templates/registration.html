@@ -1,0 +1,89 @@
+<!--Register-->
+<form class="registerform" method="POST" action="./registered_success/">
+    <div class="container py-5">
+        <h1>Registration</h1>
+
+        <!-- form body -->
+        <div class="form-body">
+            <div class="horizontal-group">
+                <div class="form-group left">
+                    <label>First name *</label>
+                    <input type="text" id="firstname" class="form-control" name="registrar_fname"
+                        placeholder="enter your first name" required="required" />
+                    <br>
+                    <label>Last name *</label>
+                    <input type="text" id="lastname" class="form-control" name="registrar_lname"
+                        placeholder="enter your last name" required="required" />
+                    <br>
+                    <label>Username *</label>
+                    <input type="text" id="username" class="form-control" name="registrar_username"
+                        placeholder="enter your username" required="required" />
+                    <br>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" id="email" class="form-control" name="registrar_email"
+                        placeholder="enter your email" required="required">
+                    <br>
+                    <label>Phone *</label>
+                    <input type="text" id="phone" class="form-control" name="registrar_phone"
+                        placeholder="enter your phone number" required="required">
+                </div>
+
+                <!-- Password-->
+                <div class="horizontal-group">
+
+                    <div class="form-group left">
+                        <label>Password *</label>
+                        <input type="password" id="password" class="form-control" name="password"
+                            placeholder="enter your password" required="required">
+                    </div>
+
+                </div>
+
+                <!-- form footer -->
+                <div class="form-footer">
+                    <span>* required</span><br>
+                </div>
+
+                <br>
+                <input type="submit" name="button_1" type="button">Register as Bidder<br><br>
+                <input type="submit" name="button_2" type="button">Register as Vendor
+
+                <br>
+                <!-- <a href="{% url 'success_registration_B' %}" class="bidder_button" type="button" formmethod="POST"
+                    value="submit">Register as Bidder</a>
+                <a href="{% url 'success_registration_V' %}" class="vendor_button" type="button" formmethod="POST"
+                    value="submit">Register as Vendor</a> -->
+                <br>
+                <p class=" text-center">If you already have an account, <a href="{% url 'login_view' %}">Login</a>
+                    instead.</p>
+
+            </div>
+
+</form>
+<script>
+    $("button_1").click(function () {
+        $.post("registration_success_B/",
+            {
+                formdata: $("registerform").serialize(),
+                para: "B"
+            },
+            function (data, status) {
+                alert("Data: " + data + "\nStatus: " + status);
+            });
+    });
+    $("button_2").click(function () {
+        $.post("registration_success_V/",
+            {
+                formdata: $("registerform").serialize(),
+                para: "V"
+            },
+            function (data, status) {
+                alert("Data: " + data + "\nStatus: " + status);
+            });
+    });
+</script>

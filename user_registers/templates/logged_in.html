@@ -1,0 +1,6 @@
+{% extend "login.html" %}
+
+
+{% if user.is_authenticated %}
+<p>Hi! {{user}}</p>
+{% endif %}

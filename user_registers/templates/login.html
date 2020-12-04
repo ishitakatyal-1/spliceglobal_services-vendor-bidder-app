@@ -1,0 +1,16 @@
+{% load rest_framework %}
+
+<h2>Log In</h2>
+<form method="POST" action="./login/">{% csrf_token %}
+
+    <label>Username </label>
+    <input type="text" class="form-control" name="registrar_username" placeholder="username" />
+    <br>
+    <label>Password</label>
+    <input type="password" id="password" class="form-control" name="password" placeholder="password" />
+    <br>
+    <button type="submit">Log In</button>
+    {% block logged_in %}
+
+    {% endblock %}
+</form>
